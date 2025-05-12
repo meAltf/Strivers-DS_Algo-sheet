@@ -1,1 +1,1 @@
-# Strivers-s-DS_Algo
+# Strivers's-DS_Algo

@@ -34,3 +34,21 @@ private static int secondLargestNum(int[] nums){
     }
 
 2- Better Approach :
+
+private static int secLargBetterApp(int[] nums){
+        // first traverse to find largest num
+        int largest = nums[0];
+        for(int num : nums){
+            if(num > largest) largest = num;
+        }
+        System.out.println("first largest num: "+largest);
+        
+        // second traverse to find 2nd largest num
+        int secLargest = Integer.MIN_VALUE;
+        for(int num : nums){
+            if(num > secLargest && num != largest) secLargest = num;
+        }
+        System.out.println("second largest num: "+largest);
+        
+        return secLargest;
+    }

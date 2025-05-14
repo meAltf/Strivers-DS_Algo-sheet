@@ -52,3 +52,19 @@ private static int secLargBetterApp(int[] nums){
         
         return secLargest;
     }
+
+
+3- Optimal Approach :
+
+private  static int findSecLargNum(int[] nums){
+        int largest = nums[0], secondLargest = Integer.MIN_VALUE;
+        for(int i=0; i<nums.length; i++){
+            if(nums[i] > largest){
+                secondLargest = largest;
+                largest = nums[i];
+            } else if(nums[i] != largest && nums[i] > secondLargest){
+                secondLargest = nums[i];
+            }
+        }
+        return secondLargest;
+    }

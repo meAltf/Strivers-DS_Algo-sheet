@@ -42,3 +42,15 @@ class Main {
         }
     }
 }
+
+2- Optimal Approach:
+
+private static int[] leftRotateByOne(int[] nums){
+        int n = nums.length, firstEle = nums[0];
+        
+        for(int i=0; i<=n-2; i++){
+            nums[i] = nums[i+1];
+        }
+        nums[n-1] = firstEle;
+        return nums;
+    }

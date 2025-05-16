@@ -37,3 +37,23 @@ class Solution {
         }
     }
 }
+
+
+2- Through array pass :
+
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int n = nums.length, k = 0;
+
+        // shift non-zero elements first
+        for(int num: nums){
+            if(num != 0) nums[k++] = num;
+        }
+        
+        // rest of the field filled with zero
+        while(k < n){
+            nums[k++] = 0;
+        }
+    }
+}

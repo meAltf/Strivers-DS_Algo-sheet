@@ -1,6 +1,5 @@
 Problem: Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
 
- 
 
 Example 1:
 
@@ -41,5 +40,36 @@ class Solution {
         for(int i=0; i<n; i++){
             nums[i] = temp[i];
         }
+    }
+}
+
+
+
+Optimal approach :
+
+class Solution {
+    private void reverse(int[] nums, int start, int end){
+        while(start < end){
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+    public void rotate(int[] nums, int k) {
+        int n = nums.length;
+        
+        // handle case wher k>n
+        k = k % n;
+
+        // reverse the entire array
+        reverse(nums, 0, n-1);
+
+        // reverse the remaining k elements
+        reverse(nums, 0, k-1);
+
+        // reverse the remaining n-k elements
+        reverse(nums, k, n-1);
     }
 }

@@ -60,3 +60,19 @@ class Solution {
         return expectedSum - actualSum;
     }
 }
+
+
+3. XOR operation-
+
+class Solution {
+    public int missingNumber(int[] nums) {
+        // using XOR operation
+        int xor = 0;
+        for(int i=0; i<nums.length; i++){
+            xor ^= i^nums[i];
+        }
+        xor ^=nums.length;
+
+        return xor;
+    }
+}

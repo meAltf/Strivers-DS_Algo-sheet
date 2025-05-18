@@ -43,3 +43,30 @@ class Solution {
         return temp;
     }
 }
+
+
+2. Better Approach - Using HashMap
+
+ import java.util.HashMap;
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] temp = new int[2];
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i =0; i<nums.length; i++){
+            map.put(nums[i], i);
+        }
+
+        for(int i = 0; i< nums.length; i++){
+            int element = nums[i];
+            int needed = target - element;
+            if(map.containsKey(needed) && i != map.get(needed)){
+                temp[0] = map.get(needed);
+                temp[1] = i;
+                break;
+            }
+        }
+
+        return temp;
+    }
+}

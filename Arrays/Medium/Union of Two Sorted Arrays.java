@@ -33,7 +33,7 @@ Union of arr1 and arr2 is {1,2,3,4,5,6,7,8,9,10,11,12}
 
 Solution :
 
-1. Brute-force approach :
+1. Brute-force approach : using HashMap
 
 // Online Java Compiler
 // Use this editor to write, compile and run your Java code online
@@ -61,6 +61,26 @@ class Main {
         return result;
 
     }
+
+ 2. Use TreeSet :
+
+ public static int[] unionArray(int[] nums1, int[] nums2) {
+       int m = nums1.length, n = nums2.length;
+
+        Set<Integer> hashSet = new TreeSet<>();
+        
+        for(int num : nums1) hashSet.add(num);
+        for(int num : nums2) hashSet.add(num);
+
+        int[] result = new int[hashSet.size()];
+        int i=0;
+        for(int key : hashSet){
+            result[i++] = key;
+        }
+        return result;
+
+    }
+ 
     
     public static void main(String[] args) {
         int n = 10, m = 7;

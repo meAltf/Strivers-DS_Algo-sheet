@@ -47,7 +47,7 @@ class Solution {
 
 2. Better Approach - Using HashMap
 
- import java.util.HashMap;
+import java.util.HashMap;
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] temp = new int[2];
@@ -68,5 +68,27 @@ class Solution {
         }
 
         return temp;
+    }
+}
+
+
+3. Optimal Approach - for returnig yes or no only.
+
+
+import java.util.HashMap;
+class Solution {
+    public boolean twoSum(int[] nums, int target) {
+        boolean flag = false
+        // Sort the array then two pointer approach:
+        Arrays.sort(nums);
+
+        int start = 0, end = nums.length-1;
+        while(start <= end){
+            int sum = nums[start] + nums[end];
+            if(sum == target) return flag;
+            else if(sum < target) end--;
+            else start++;
+        }
+        return flag;
     }
 }

@@ -65,3 +65,27 @@ class Solution {
         
     }
 }
+
+
+3. Optimal Approach : flatten 2D array into 1D using divide & module operator
+
+public boolean searchMatrix(int[][] matrix, int target) {
+        // Now, need to solve it in O(log(m*n))
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int low = 0, high = (m*n)-1;
+
+        // check for empty matrix or empty row
+        if (m == 0 || matrix[0].length == 0) return false; 
+
+        while(low <= high){
+            int mid = (low+high)/2;
+
+            int row = mid/n, col = mid%n; // remember this
+
+            if(matrix[row][col] == target) return true;
+            else if(matrix[row][col] < target) low = mid+1;
+            else high = mid-1;
+        }
+        return false;
+    }

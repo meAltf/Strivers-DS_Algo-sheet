@@ -24,7 +24,7 @@ Output: false
 
 Solution : 
 
-Brute-force:
+1. Brute-force:
 
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
@@ -34,5 +34,34 @@ class Solution {
             }
         }
         return false;
+    }
+}
+
+2. Better approach : using Binary search
+
+ class Solution {
+    private boolean searchFun(int[] nums, int target){
+        int low = 0, high = nums.length-1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (nums[mid]== target) return true;
+            else if (target > nums[mid]) low = mid + 1;
+            else high = mid - 1;
+        }
+        return false;
+    }
+ 
+    public boolean searchMatrix(int[][] matrix, int target) {
+        // Now, need to solve it in O(log(m*n))
+        int m = matrix.length;
+
+        for(int i=0; i<matrix.length; i++){
+            if(matrix[i][0] <= target && target <= matrix[i][matrix[i].length-1]){
+               return searchFun(matrix[i], target);
+            }
+        }
+        return false;
+        
     }
 }

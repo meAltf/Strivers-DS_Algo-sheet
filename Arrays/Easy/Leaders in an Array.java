@@ -1,4 +1,4 @@
-Problem statement
+Problem statement :
 
 Given an integer array nums, return a list of all the leaders in the array.
 
@@ -50,3 +50,29 @@ class Solution {
         return temp;
     }
 }
+
+
+2. Optimal approach :
+
+private static ArrayList<Integer> leaders(int[] nums) {
+        int n= nums.length;
+        ArrayList<Integer> ans= new ArrayList<>();
+        
+        // edge case
+        if(nums.length == 0 || nums.length== 1) return ans;
+        
+        int max = nums[n-1];
+        ans.add(nums[n-1]);
+        
+        for(int i=n-2; i>=0; i--){
+            if(nums[i] > max){
+                ans.add(nums[i]);
+                max = nums[i];
+            }
+        }
+        
+        // need to reverse the list
+        // Collections.sort(ans, Collections.reverseOrder());
+        Collections.reverse(ans);
+        return ans;
+    }

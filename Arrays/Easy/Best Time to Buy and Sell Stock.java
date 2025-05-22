@@ -39,4 +39,23 @@ Solution :
         return maxProfit;
     }
 }
-  
+
+
+2. Optimal approach
+
+ class Solution {
+    public int maxProfit(int[] prices) {
+        // edge case
+        if(prices == null || prices.length == 0) return 0;
+
+        int maxProfit =0;
+        int min = prices[0];
+
+        for(int i=1; i<prices.length; i++){
+            int profit = prices[i]-min;
+            maxProfit = Math.max(profit, maxProfit);
+            min = Math.min(min, prices[i]);
+        }
+        return maxProfit;
+    }
+}

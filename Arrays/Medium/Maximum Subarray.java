@@ -42,3 +42,22 @@ class Solution {
         return maxSum;
     }
 }
+
+
+2. Better Approach
+
+ class Solution {
+    public int maxSubArray(int[] nums) {
+        // subarray with largest sum
+        int maxSum = Integer.MIN_VALUE, n = nums.length;
+
+        for(int i=0; i<n; i++){
+            int sum = 0;
+            for(int j=i; j<n; j++){
+                sum+=nums[j];
+                maxSum = Math.max(sum, maxSum);
+            }
+        }
+        return maxSum;
+    }
+}

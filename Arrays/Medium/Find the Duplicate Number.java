@@ -54,3 +54,29 @@ class Solution {
         return 0;
     }
 }
+
+3. Better approach : using hashing
+
+ import java.util.HashMap;
+class Solution {
+    public int findDuplicate(int[] nums) {
+        // duplicate find krna hai bc | use hashing
+        int n = nums.length;
+        HashMap<Integer, Integer> freqMap = new HashMap<>();
+
+        // putting in map
+        for(int num : nums){
+            if(freqMap.containsKey(num)){
+                freqMap.put(num, freqMap.get(num)+1);
+            }else{
+                freqMap.put(num,1);
+            }
+        }
+
+        // traversing over map to check duplicate
+        for(int num : freqMap.keySet()){
+            if(freqMap.get(num) >= 2) return num;
+        }
+        return 0;
+    }
+}

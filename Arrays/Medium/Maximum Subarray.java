@@ -61,3 +61,23 @@ class Solution {
         return maxSum;
     }
 }
+
+
+3. Optimal approach : kadane's algorithm
+
+
+ class Solution {
+    public int maxSubArray(int[] nums) {
+        // subarray with largest sum
+        int maxSum = Integer.MIN_VALUE, n = nums.length;
+        int sum = 0;
+
+        for(int i=0; i<n; i++){
+            sum+=nums[i];
+            //if(sum > maxSum) maxSum = sum;
+            maxSum = Math.max(sum, maxSum);
+            if(sum < 0) sum = 0;
+        }
+        return maxSum;
+    }
+}

@@ -23,21 +23,15 @@ Solution :
   class Solution {
     public int majorityElement(int[] nums) {
         int n=nums.length;
-        int maxCount = 0, ans = Integer.MIN_VALUE;
-
-        Arrays.sort(nums);
+        int ans = Integer.MIN_VALUE;
 
         for(int i=0; i<n; i++){
             int count = 0;
-            int current = nums[i];
             for(int j=i; j<n; j++){
                 if(nums[i] == nums[j]) count++;
             }
 
-            if(count>maxCount){
-                maxCount = count;
-                ans = current;
-            }
+            if(count>n/2) return nums[i];
         }
         return ans;
     }

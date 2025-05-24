@@ -38,3 +38,28 @@ Solution
         int element = pascalTriangle(r, c);
         System.out.println("The element at position (r,c) is: " + element);
     }
+
+// Variant : 2
+// Given the row number n. Print the n-th row of Pascal’s triangle.
+1. Brute force 
+  
+    private void pascalTriangle(int n){
+        for(int c=1; c<=n; c++){
+            System.out.print(nCr(n-1, c-1) + " ")
+        }
+        System.out.println();
+    }
+
+    private int nCr(int n, int r){
+        int result = 1;
+        for(int i=0; i<r; i++){
+            result = result * (n-i);
+            result = (result/(i+1));
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int n = 5;
+        pascalTriangle(n);
+    }

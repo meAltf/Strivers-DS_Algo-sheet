@@ -63,3 +63,24 @@ Solution
         int n = 5;
         pascalTriangle(n);
     }
+
+2. Better/optimal approach 
+
+// Given the row number n. Print the n-th row of Pascal’s triangle.
+    private void pascalTriangle(int n){
+        int ans = 1;
+        System.out.print(ans + " "); // printing first element
+
+        // printing rest elements
+        for(int i=1; i<n; i++){
+            ans = ans * (n-i);
+            ans = ans/i;
+            System.out.print(ans + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        int n = 5;
+        pascalTriangle(n);
+    }

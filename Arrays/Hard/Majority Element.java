@@ -64,3 +64,26 @@ Solution :
         return ans;
     }
 }
+
+
+3. Optimal Approach 
+
+class Solution {
+    public int majorityElement(int[] nums) {
+        // using Moove's voting algorithm
+        int n = nums.length;
+        int count = 0, elem = Integer.MIN_VALUE;
+
+        for(int i=0; i<n; i++){
+            if(count ==0){
+                elem = nums[i];
+                count = 1;
+            } else if(elem == nums[i]){
+                count++;
+            } else {
+                count--;
+            }
+        }
+        return elem;
+    }
+}

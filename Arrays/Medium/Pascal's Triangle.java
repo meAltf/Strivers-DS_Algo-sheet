@@ -19,13 +19,22 @@ Solution
 1. Brute force 
 
   // it will find the num at given row & col place in pascal's triangle
-    findNum(row-1, col-1, nums);
-    private int findNum(int row, int col, int[] nums){
-        int n = nums.length;
+    private int pascalTriangle(int r, int c){
+        int element = (int)nCr(r-1, c-1);
+    }
+
+    private int nCr(int n, int r){
         int result = 1;
-        for(int i=0; i<n; i++){
+        for(int i=0; i<r; i++){
             result = result * (n-i);
             result = (result/(i+1));
         }
         return result;
+    }
+
+    public void main(String[] args) {
+        int r = 5; // row number
+        int c = 3; // col number
+        int element = pascalTriangle(r, c);
+        System.out.println("The element at position (r,c) is: " + element);
     }

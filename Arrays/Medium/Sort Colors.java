@@ -27,3 +27,28 @@ Solution :
         Arrays.sort(nums);
     }
 }
+
+2. Better approach 
+
+class Solution {
+    public void sortColors(int[] nums) {
+        //Arrays.sort(nums);
+        int red=0, white=0, blue=0, n=nums.length;
+
+        for(int i=0; i<n; i++){
+            if(nums[i] == 0) red++;
+            if(nums[i] == 1) white++;
+            if(nums[i] == 2) blue++;
+        }
+
+        int i=0;
+        int[] temp = new int[n];
+        while(red-- > 0) temp[i++] = 0;
+        while(white-- > 0) temp[i++] = 1;
+        while(blue-- > 0) temp[i++] = 2;
+
+        for(int k=0; k<n; k++){
+            nums[k] = temp[k];
+        }
+    }
+} 

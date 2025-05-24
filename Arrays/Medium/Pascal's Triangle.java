@@ -17,7 +17,7 @@ Output: [[1]]
 
 Solution
 1. Brute force 
-
+  // variant : 1
   // it will find the num at given row & col place in pascal's triangle
     private int pascalTriangle(int r, int c){
         int element = (int)nCr(r-1, c-1);

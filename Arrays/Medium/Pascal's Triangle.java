@@ -114,3 +114,33 @@ class Solution {
         return result;
     }
 }
+
+
+2. Optimal Approach
+
+  class Solution {
+
+    private List<Integer> generateRow(int row){
+        int ans = 1;
+        List<Integer> ansList = new ArrayList<>();
+        ansList.add(ans); //inserting the 1st element
+
+        //calculate the rest of the elements:
+        for(int col = 1; col< row; col++){
+            ans = ans * (row-col);
+            ans = ans/col;
+            ansList.add((int)ans);
+        }
+        return ansList;
+    }
+
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> result = new ArrayList<>();
+
+        //store the entire pascal's triangle:
+        for(int row =1; row <=numRows; row++){
+            result.add(generateRow(row));
+        }
+        return result;
+    }
+}

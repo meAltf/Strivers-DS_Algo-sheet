@@ -36,3 +36,31 @@ Solution :
         return ans;
     }
 }
+
+
+
+2. Better approach : using hashing
+
+ class Solution {
+    public int majorityElement(int[] nums) {
+        int n=nums.length;
+        int ans = Integer.MIN_VALUE;
+
+        HashMap<Integer, Integer> freqMap = new HashMap<>();
+
+        // put the elements, count into map
+        for(int num : nums){
+           if(freqMap.containsKey(num)){
+            freqMap.put(num, freqMap.get(num)+1);
+           }else{
+            freqMap.put(num,1);
+           }
+        }
+
+        // traverse and found num that appear more than n/2 times
+        for(int num : nums){
+            if(freqMap.get(num) > n/2) return num;
+        }
+        return ans;
+    }
+}

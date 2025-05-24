@@ -84,3 +84,33 @@ Solution
         int n = 5;
         pascalTriangle(n);
     }
+
+
+// Variant -3, given n print whole pascal's triangle
+
+1. Brute force :
+
+class Solution {
+
+    private int nCr(int n, int r){
+        int result = 1;
+        for(int i=0; i<r; i++){
+            result = result * (n-i);
+            result = (result/(i+1));
+        }
+        return result;
+    }
+
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> result = new ArrayList<>();
+
+        for(int row =1; row <=numRows; row++){
+            List<Integer> tempList = new ArrayList<>();
+            for(int col =1; col<=row; col++){
+                tempList.add(nCr(row-1, col-1));
+            }
+            result.add(tempList);
+        }
+        return result;
+    }
+}

@@ -52,3 +52,36 @@ class Solution {
         }
     }
 } 
+
+
+3. Optimal Approach : Dutch National Flag Algorithm
+
+
+  class Solution {
+
+    private void swap(int i, int j, int[] nums){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    public void sortColors(int[] nums) {
+        //Arrays.sort(nums);
+        // Dutch National Flag Algorithm
+        int n = nums.length;
+        int low = 0, mid = 0, high = n-1;
+
+        for(int i=0; i<n; i++){
+            if(nums[mid] == 0){
+                swap(mid, low, nums);
+                low++;
+                mid++;
+            } else if(nums[mid] == 1){
+                mid++;
+            } else{
+                swap(mid,high, nums);
+                high--;
+            }
+        }
+    }
+} 

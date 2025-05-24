@@ -87,3 +87,38 @@ class Solution {
         return elem;
     }
 }
+
+
+4. Optimal Approach - variant 2
+
+ // If in problem statement , it doesn't mentioned that there will be definetly one majority element then whatever element we've at the end need to check like
+ // is that element really appeared more than n/2 times
+ // if yes return that element 
+ // if not return -1
+
+ class Solution {
+    public int majorityElement(int[] nums) {
+        // using Moove's voting algorithm
+        int n = nums.length;
+        int count = 0, elem = Integer.MIN_VALUE;
+
+        for(int i=0; i<n; i++){
+            if(count ==0){
+                elem = nums[i];
+                count = 1;
+            } else if(elem == nums[i]){
+                count++;
+            } else {
+                count--;
+            }
+        }
+
+      // Optional: Verify that the candidate is actually the majority (only needed if it's not mentioned that there will be definetly one majority element present)
+        int count1 =0;
+        for(int num : nums){
+            if(num == elem) count1++;
+        }
+     
+        return count1 >n/2 ? elem : -1;
+    }
+}

@@ -43,3 +43,31 @@ class Solution {
         return result;
     }
 }
+
+2. Better approach : using Hashing
+
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        int n = nums.length;
+        HashMap<Integer, Integer> freqNum = new HashMap<>();
+
+        for(int num : nums){
+            if(freqNum.containsKey(num)){
+                freqNum.put(num, freqNum.get(num)+1);
+            }else{
+                freqNum.put(num, 1);
+            }
+        }
+
+        Set<Integer> result = new HashSet<>();
+        for(int num : nums){
+            if(freqNum.get(num) > n/3) result.add(num);
+        }
+
+        List<Integer> finalResult = new ArrayList<>();
+        for(int num : result) finalResult.add(num);
+
+        return finalResult;
+        
+    }
+}

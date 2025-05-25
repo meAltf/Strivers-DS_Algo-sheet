@@ -66,3 +66,38 @@ solution :
         convertToZero(matrix);
     }
 }
+
+
+2. Brute force : for all type of matrix
+
+ class Solution {
+    public void setZeroes(int[][] matrix) {
+        // Brute force :
+        if(matrix.length == 0 || matrix == null) return;
+
+        int row = matrix.length, col = matrix[0].length;
+
+        // take row & col array column to mark, index true having zero
+        boolean[] arrRow = new boolean[row];
+        boolean[] arrCol = new boolean[col];
+
+        //1st pass, if found zero set true
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                if(matrix[i][j] == 0){
+                    arrRow[i] = true;
+                    arrCol[j] = true;
+                }
+            }
+        }
+
+        // 2nd pass, set cells to zero where needed
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                if(arrRow[i] || arrCol[j]){
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+}

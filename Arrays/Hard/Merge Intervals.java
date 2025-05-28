@@ -19,7 +19,44 @@ Explanation: Intervals [1,4] and [4,5] are considered overlapping.
 
 Solution :
 
-1. Optimal Approach :
+1. Brute Force :
+
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        int n = intervals.length;
+        if (n <= 1) return intervals;
+        
+        // sort the whole intervals | 2D array
+        Arrays.sort(intervals, (a,b) -> {
+            if(a[0] != b[0]) return Integer.compare(a[0], b[0]);
+            else return Integer.compare(a[1], b[1]);
+        });
+
+        List<int[]> merged = new ArrayList<>();
+
+        // Brute force
+        for(int i=0; i<n; i++){
+            int start = intervals[i][0];
+            int end = intervals[i][1];
+
+            if (!merged.isEmpty() && end <= merged.get(merged.size()-1)[1]){
+                continue;
+            }
+
+            for(int j=i+1; j<n; j++){
+                if(intervals[j][0] <= end){
+                    end = Math.max(end, intervals[j][1]);
+                } else {
+                    break;
+                }
+            } 
+            merged.add(new int[]{start, end});          
+        }
+        return merged.toArray(new int[merged.size()][]);
+    }
+}
+
+2. Optimal Approach :
 
 class Solution {
     public int[][] merge(int[][] intervals) {

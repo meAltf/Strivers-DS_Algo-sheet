@@ -55,3 +55,33 @@ Solution :
     }
 }
 
+
+2. Better Approach :
+
+class Solution {
+
+    public int longestConsecutive(int[] nums) {
+      int n = nums.length;
+      if(n == 0) return 0;
+      int lastSmallest = Integer.MIN_VALUE;
+      int cnt = 0;
+      int largest = 1;
+
+      Arrays.sort(nums);
+      for(int i=0; i<nums.length; i++){
+
+        if(nums[i]-1 == lastSmallest){
+            cnt++;
+            lastSmallest = nums[i];
+        } else if(nums[i] != lastSmallest) {
+            lastSmallest = nums[i];
+            cnt = 1;
+        }
+        largest = Math.max(cnt, largest);
+      }
+      return largest;
+    }
+}
+
+
+

@@ -58,3 +58,26 @@ private static int longestSubarray(int[] nums, int k) {
         }
         return largest;
     }
+
+3. Better using two pointer approach
+
+private static int longestSubarray(int[] nums, int k) {
+        int n = nums.length;
+        if(n == 0) return 0;
+        int left = 0, right = 0;
+        int largest = 0;
+        int sum = nums[0];
+        
+        while(right < n){
+            while(sum > k && left <= right){
+                sum -= nums[left];
+                left++;
+            }
+            if(sum == k){
+                largest = Math.max(right-left+1, largest);
+            }
+            right++;
+            if(right < n) sum+=nums[right];
+        }
+        return largest;
+    }

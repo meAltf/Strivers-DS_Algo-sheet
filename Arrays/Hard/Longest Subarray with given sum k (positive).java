@@ -38,3 +38,23 @@ private static int longestSubarray(int[] nums, int k) {
         }
         return largest;
     }
+
+2. Better approach :
+
+private static int longestSubarray(int[] nums, int k) {
+        int n = nums.length;
+        if(n == 0) return 0;
+        int largest = 0;
+        
+        for(int i=0; i<n; i++){
+            int sum = 0;
+            int count = 0;
+            for(int j=i; j<n; j++){
+                sum+=nums[j];
+                count++;
+                
+                if(sum == k) largest = Math.max(count, largest);
+            }
+        }
+        return largest;
+    }

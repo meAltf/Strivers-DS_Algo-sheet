@@ -81,3 +81,36 @@ private static int longestSubarray(int[] nums, int k) {
         }
         return largest;
     }
+
+4. Optimal approach using Hashing
+
+private static int longestSubarray(int[] nums, int k) {
+        int n = nums.length;
+        int sum = 0;
+        int maxLen = 0;
+        
+        Map<Integer, Integer> preSumMap = new HashMap<>();
+        
+        for(int i=0; i<n; i++){
+            sum+=nums[i];
+            
+            if(sum == k){
+                maxLen = Math.max(maxLen, i+1);
+            }
+            
+            // calculate sum of remaining part
+            int rem = sum-k;
+            
+            //calculate the length and update the maxLen
+            if(preSumMap.containsKey(sum)){
+                int len = i - preSumMap.get(rem);
+                maxLen = Math.max(maxLen, len);
+            }
+            
+            // finally, update the map checking the conditions
+            if (!preSumMap.containsKey(sum)){
+                preSumMap.put(sum, i);
+            }
+        }
+        return maxLen;
+    }

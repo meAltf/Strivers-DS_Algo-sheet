@@ -85,3 +85,43 @@ class Solution {
         return new int[]{lowerB, upperBound(nums, target)-1};
     }
 }
+
+
+3. Optimal approach | using binary search directly
+
+ class Solution {
+
+    private int firstOccurence(int[] nums, int target){
+        int start = 0, end = nums.length-1;
+        int first = -1;
+        while(start <= end){
+            int mid = start + (end-start)/2;
+            if(target == nums[mid]){
+                first = mid;
+                end = mid-1;
+            } else if (target > nums[mid]) start = mid+1;
+            else end = mid-1;
+        }
+        return first;
+    }
+
+    private int lastOccurence(int[] nums, int target){
+        int start = 0, end = nums.length-1;
+        int second = -1;
+        while(start <= end){
+            int mid = start + (end-start)/2;
+            if(target == nums[mid]){
+                second = mid;
+                start = mid+1;
+            } else if(target < nums[mid]) end = mid-1;
+            else start = mid+1;
+        }
+        return second;
+    }
+
+    
+    public int[] searchRange(int[] nums, int target) {
+        int n = nums.length;
+        return new int[]{firstOccurence(nums, target),lastOccurence(nums, target)};
+    }
+}

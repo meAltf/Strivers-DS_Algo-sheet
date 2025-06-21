@@ -31,6 +31,19 @@ public class InsertionInLL {
         return new Node(value, head);
     }
 
+    private static Node insertionFromEnd(Node head, int data) {
+        if (head == null) return head;
+
+        Node newNode = new Node(data);
+        Node temp = head;
+
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+        return head;
+    }
+
     private static Node insertionFromHead2(Node head, int data) {
         Node newNode = new Node(data);
         if (head == null) {
@@ -52,5 +65,11 @@ public class InsertionInLL {
         // Insertion from head
         Node updatedNode1 = insertionFromHead(head, 111);
         printLL(updatedNode1);
+        System.out.println();
+
+        // Insertion from tails
+        Node updatedNode2 = insertionFromEnd(head, 999);
+        printLL(updatedNode2);
+        System.out.println();
     }
 }

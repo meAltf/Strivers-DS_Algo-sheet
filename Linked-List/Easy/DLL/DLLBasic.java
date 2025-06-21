@@ -40,12 +40,29 @@ public class DoubleLLBasics {
         return head;
     }
 
+     private static Node deleteHeadOfDLL(Node head) {
+        if (head == null || head.next == null) return null;
+
+        Node prev = head;
+        head = head.next;
+
+        head.back = null;
+        prev.next = null;
+
+        return head;
+    }
+
     public static void main(String[] args) {
 
         int[] arr = {2,5,7,9,11,17,21};
 
         Node head = convertArr2DLL(arr);
         printDLL(head);
+
+         // Deletion of head in DLL
+        Node updatedNode1 = deleteHeadOfDLL(head);
+        printDLL(updatedNode1);
+        System.out.println();
 
     }
 }

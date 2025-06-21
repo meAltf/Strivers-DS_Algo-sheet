@@ -24,7 +24,7 @@ private static Node removeKthNode2(Node head, int k) {
 
         int count = 0;
         Node temp = head, prev = null;
-        while (temp.next != null) {
+        while (temp != null) {
             count++;
             if (count == k) {
                 prev.next = prev.next.next;

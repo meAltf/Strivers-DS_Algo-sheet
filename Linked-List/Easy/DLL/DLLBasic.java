@@ -52,6 +52,20 @@ public class DoubleLLBasics {
         return head;
     }
 
+    private static Node deleteTailOfDLL(Node head) {
+        if (head == null || head.next == null) return null;
+
+        Node tail = head;
+        while (tail.next != null) {
+            tail = tail.next;
+        }
+        Node newTail = tail.back;
+        newTail.next = null;
+        tail.back = null;
+
+        return head;
+    }
+
     public static void main(String[] args) {
 
         int[] arr = {2,5,7,9,11,17,21};
@@ -62,6 +76,11 @@ public class DoubleLLBasics {
          // Deletion of head in DLL
         Node updatedNode1 = deleteHeadOfDLL(head);
         printDLL(updatedNode1);
+        System.out.println();
+
+        // Deletion of tail in DLL
+        Node updatedNode2 = deleteTailOfDLL(head);
+        printDLL(updatedNode2);
         System.out.println();
 
     }

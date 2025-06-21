@@ -55,6 +55,33 @@ public class InsertionInLL {
         return head;
     }
 
+    private static Node insertioAtGivenNode(Node head, int data, int k) {
+        if (head == null) {
+            if (k == 1) return new Node(data);
+        }
+
+        if (k == 1) {
+//            Node newNode = new Node(data);
+//            newNode.next = head;
+//            return newNode;
+            return new Node(data, head);
+        }
+
+        int count = 0;
+        Node temp = head, prev = null;
+        while (temp != null) {
+            count++;
+            if (k - 1 == count) {
+                Node newNode = new Node(data);
+                newNode.next = temp.next;
+                temp.next = newNode;
+                break;
+            }
+            temp = temp.next;
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
         int[] arr = {2,4,9,45,97};
 
@@ -70,6 +97,11 @@ public class InsertionInLL {
         // Insertion from tails
         Node updatedNode2 = insertionFromEnd(head, 999);
         printLL(updatedNode2);
+        System.out.println();
+
+        // Insertion at given position
+        Node updatedNode3 = insertioAtGivenNode(head, 786, 5);
+        printLL(updatedNode3);
         System.out.println();
     }
 }

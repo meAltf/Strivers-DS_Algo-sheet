@@ -31,6 +31,17 @@ public class InsertionInLL {
         return new Node(value, head);
     }
 
+    private static Node insertionFromHead2(Node head, int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return head;
+        }
+        newNode.next = head;
+        head = newNode;
+        return head;
+    }
+
     public static void main(String[] args) {
         int[] arr = {2,4,9,45,97};
 

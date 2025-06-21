@@ -14,3 +14,24 @@ private static Node removeKthNode(Node head, int k) {
         }
         return head;
 }
+
+// Approach -2 
+
+private static Node removeKthNode2(Node head, int k) {
+        if (head == null) return head;
+
+        if (k == 1) return head.next;
+
+        int count = 0;
+        Node temp = head, prev = null;
+        while (temp.next != null) {
+            count++;
+            if (count == k) {
+                prev.next = prev.next.next;
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        return head;
+    }

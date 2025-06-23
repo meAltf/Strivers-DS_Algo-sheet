@@ -1,1 +1,16 @@
 -- Concepts :
+
+- These are a type of data structure that holds certain type of data.
+
+
+1. Stack : LIFO (Last In First Out)
+  - push(x)
+  - pop()
+  - peek()/top()
+  - size()
+
+2. Queue : FIFO (First In First Out)
+  - push(x)
+  - pop()
+  - peek()/top()
+  - size()

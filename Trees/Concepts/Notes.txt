@@ -1,1 +1,19 @@
+1. Binary Tree -> Having atmax two children only for a rootNode. | right & left
 
+2. Types of Binary trees:
+
+  i.  Full Binary Tree   
+        1. Either having 0 or 2 children
+
+  ii. Complete Binary Tree 
+        1. All level completely filled with except last level
+        2. The last level has all nodes on left as possible
+
+  iii. Perfect Binary Tree
+        1. All leaf nodes are at same level
+
+  iv. Balanced Binary Tree
+        1. Height of the tree at maximum log(n) -> number of nodes
+
+  v. Degenerate Tree
+        1. Every node having only one children.

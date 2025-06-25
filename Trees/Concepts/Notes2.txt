@@ -4,9 +4,14 @@ Traversal on Trees :
 i.  BFS | Breadth first search
 ii. DFS | Depth first search
 
--- Types of Traverdal --
-i. InOrder Traversal         | Left , Root, Right
+-- Types of Traverdal -- || DFS
 
-ii. Pre-order Traversal      | Root, Left, Right
+    i. InOrder Traversal         | Left , Root, Right
+    
+    ii. Pre-order Traversal      | Root, Left, Right
+    
+    iii. Post-order Traversal    | Left, Right, Root 
 
-iii. Post-order Traversal    | Left, Right, Root 
+-- Types of Traversal -- || BFS
+
+    i. Level-wise [ breadth wise ]

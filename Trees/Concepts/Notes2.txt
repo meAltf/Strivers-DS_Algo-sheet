@@ -1,0 +1,12 @@
+Traversal on Trees :
+
+-- Two Algorithm --
+i.  BFS | Breadth first search
+ii. DFS | Depth first search
+
+-- Types of Traverdal --
+i. InOrder Traversal         | Left , Root, Right
+
+ii. Pre-order Traversal      | Root, Left, Right
+
+iii. Post-order Traversal    | Left, Right, Root 

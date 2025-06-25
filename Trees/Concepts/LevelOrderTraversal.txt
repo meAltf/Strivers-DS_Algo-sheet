@@ -1,0 +1,9 @@
+Intution & Algorithm behind LevelOrderTraversal :
+
+1. Need to take one Queue
+2. To store level wise data need list<List<Integer>>
+3. Push root of the binaryTree in Queue first
+4. If you're going to take out that first TreeNode, 
+    i. please check if root.left having some TreeNode put root.left TreeNode into Queue
+    ii. please check if root.right having some TreeNode put root.right TreeNode into Queue
+5. Once you done with first TreeNode, take this TreeNode and put it into List<List<Integer> meand put it into sub-List<Integer>

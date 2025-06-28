@@ -36,3 +36,14 @@ adj[u][v] = 1;
 adj[u][v] = 3;
 
 
+-- List way | Undirected graph
+Example:
+1. without weighted graph | Undirected graph
+adjList.get(u).add(v);
+adjList.get(v).add(u);
+
+-- List way | Directed graph
+1. Without weighted graph
+adjList.get(u).add(v);
+
+

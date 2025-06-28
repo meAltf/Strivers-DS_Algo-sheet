@@ -1,1 +1,14 @@
 -- Graph | Theory
+1. Graph is a data structure that stores connected data.
+2. Vertex/Node
+3. Edge
+4. Directed Graph | All the edges are directed.
+5. UnDirected Graph
+6. Cyclic | Acyclic Graphs
+7. Path | Contains a lot of nodes & each of them are reachable.
+8. Degree(x) | Undirected Graph | The number of nodes goes or come through that x node. || No. of Degree = 2 * No. of Edges | Because every edge connected with two nodes.
+9. Directed Graph | InDegree & OutDegree | Indegree- No of incoming edges on that node | outDegree- No of outgoing edges from that node.
+10. Edge-weight | if weight didn't provided means it's unit edge. |
+
+
+Notes: A Node cannot appear twice in a path.

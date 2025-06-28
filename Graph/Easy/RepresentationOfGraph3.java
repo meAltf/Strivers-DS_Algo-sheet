@@ -38,7 +38,15 @@ public class RepresentationOfGraph3 {
 
             adjListWeight.get(u).add(new Pair(v, weight));
             adjListWeight.get(v).add(new Pair(u, weight));
-
+        }
+        // Printing weighted undirected graph
+        System.out.println("Using pair class :-");
+        for (int i = 0; i <= n; i++) {
+            System.out.print("Node " + i + ": ");
+            for (Pair p : adjListWeight.get(i)) {
+                System.out.print(p);
+            }
+            System.out.println();
         }
     }
 }

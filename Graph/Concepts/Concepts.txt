@@ -12,3 +12,8 @@
 
 
 Notes: A Node cannot appear twice in a path.
+
+
+-- Representation of Graph
+1. Matrix way | Adjacency matric  | O(n^2) space to take Inputs
+2. List way | Adjacency list | O(2*n) space to take Inputs | where n = no. of edges

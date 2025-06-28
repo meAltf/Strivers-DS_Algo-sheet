@@ -42,8 +42,16 @@ Example:
 adjList.get(u).add(v);
 adjList.get(v).add(u);
 
+2. With weighted graph 
+adjListWeight.get(u).add(new Pair(v, weight));
+adjListWeight.get(v).add(new Pair(u, weight));
+
+
 -- List way | Directed graph
 1. Without weighted graph
 adjList.get(u).add(v);
+
+2. With weighted graph 
+adjListWeight.get(u).add(new Pair(v, weight));
 
 

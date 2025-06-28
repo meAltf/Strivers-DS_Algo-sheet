@@ -19,3 +19,23 @@ class Solution {
         return true;
     }
 }
+
+-- Approach : 2 | Extended version of Height of Binary Tree
+
+class Solution {
+    private int isDfs(TreeNode root){
+        if(root == null) return 0;
+
+        int lHeight = isDfs(root.left);
+        if(lHeight == -1) return -1;
+        int rHeight = isDfs(root.right);
+        if(rHeight == -1) return -1;
+
+        if(Math.abs(lHeight-rHeight) > 1) return -1;
+        return 1 + Math.max(lHeight, rHeight);
+    }
+
+    public boolean isBalanced(TreeNode root) {
+        return isDfs(root) != -1;
+    }
+}

@@ -29,5 +29,13 @@ public class RepresentationOfGraph2 {
             adjList.get(v).add(u);
         }
 
+        // printing the adjacency list
+        for (int i = 0; i <= n; i++) {
+            System.out.print("Node " + i + ": ");
+            for (int neighbour : adjList.get(i)) {
+                System.out.print(neighbour + " ");
+            }
+            System.out.println();
+        }
     }
 }

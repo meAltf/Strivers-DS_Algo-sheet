@@ -1,6 +1,10 @@
-public List<Integer> bfsOfGraph(int V, List<List<Integer>> adj) {
+class Solution {
+    // Function to return Breadth First Search Traversal of given graph.
+    public ArrayList<Integer> bfs(ArrayList<ArrayList<Integer>> adj) {
+        // code here
+        int V = adj.size();
         ArrayList<Integer> bfsList = new ArrayList<>();
-        Boolean[] vis = new Boolean[V];
+        boolean[] vis = new boolean[V];
         Queue<Integer> queue = new LinkedList<>();
 
         queue.add(0);
@@ -9,7 +13,7 @@ public List<Integer> bfsOfGraph(int V, List<List<Integer>> adj) {
         while(!queue.isEmpty()){
             Integer node = queue.poll();
             bfsList.add(node);
-
+                
             for(int neghbour : adj.get(node)){
                 if(vis[neghbour] == false){
                     vis[neghbour] = true;
@@ -18,4 +22,5 @@ public List<Integer> bfsOfGraph(int V, List<List<Integer>> adj) {
             }
         }
         return bfsList;
+    }
 }

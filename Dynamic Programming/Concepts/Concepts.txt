@@ -1,1 +1,13 @@
 -- Dynamic programming concept before moving to solve the problems.
+
+-- Trick to find when to apply DP/recursion:
+1. find total way
+2. 
+
+
+
+-- Shortcut to apply DP or recursion | or find recurrence formula
+1. Try to represent the problem in terms of index
+2. Do all possible stuffs on that index according to the problem statment
+3. if problem said- count all the way: sum all the stuffs    
+4. if problem said- find min or max : return min/max of all the stuffs
